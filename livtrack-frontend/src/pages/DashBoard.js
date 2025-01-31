@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { useAuth } from "../contexts/AuthContext";
 import { fetchMetrics } from "../services/metrics";
 import { LineChart, Line, XAxis, YAxis, Tooltip } from "recharts";
 import { Button, FileInput } from "@mantine/core";
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function Dashboard() {
   const [metrics, setMetrics] = useState([]);
@@ -21,16 +24,20 @@ export default function Dashboard() {
   }, []);
 
   const handleOCRUpload = async (file) => {
+    if (!file) return; // Ensure a file is selected
+
     const formData = new FormData();
     formData.append("file", file);
+
     try {
-      const response = await axios.post(`${API_URL}/api/ocr`, formData, {
+      const response = await axios.post(`${API_URL}/api/v1/ocr`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "multipart/form-data",
         },
       });
-      setMetrics([...metrics, response.data]);
+
+      setMetrics((prevMetrics) => [...prevMetrics, response.data]); // Proper state update
     } catch (error) {
       console.error("OCR upload failed:", error);
     }
@@ -45,7 +52,7 @@ export default function Dashboard() {
 
       <FileInput
         label="Upload Medical Report"
-        onChange={handleOCRUpload}
+        onChange={(file) => handleOCRUpload(file)}
         accept=".pdf,.png,.jpg"
       />
 
