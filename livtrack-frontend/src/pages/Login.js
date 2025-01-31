@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "../styles/login.css";
+
 import { useNavigate } from "react-router-dom";
 import {
   TextInput,
@@ -47,43 +49,36 @@ export default function Login() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <Card shadow="lg" padding="xl" radius="md" style={{ width: 400 }}>
-        <Title align="center" order={2} style={{ marginBottom: "1rem" }}>
+    <div className="login-container">
+      <Card shadow="lg" padding="xl" radius="md" className="login-card">
+        <Title align="center" order={2} className="login-title">
           Login to Your Account
         </Title>
 
         {error && (
-          <Alert color="red" title="Error">
+          <Alert color="red" title="Error" className="error-alert">
             {error}
           </Alert>
         )}
 
         <form onSubmit={handleSubmit}>
           <TextInput
+            className="login-input"
             label="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             placeholder="Enter your email"
-            style={{ marginBottom: "1rem" }}
           />
           <PasswordInput
+            className="login-input"
             label="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             placeholder="Enter your password"
-            style={{ marginBottom: "1rem" }}
           />
-          <Button type="submit" fullWidth>
+          <Button type="submit" fullWidth className="login-button">
             Login
           </Button>
         </form>
