@@ -4,7 +4,9 @@ import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import Reports from "./pages/reports";
 import Dashboard from "./pages/DashBoard";
+import Settings from "./pages/setting";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
             />
             <Route path="*" element={<Navigate to="/dashboard" />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/setting" element={<Settings />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
