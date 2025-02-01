@@ -97,7 +97,7 @@
   width: 100%;
   padding: 20px;
   text-align: center;
-  background-color: #2b2d42;
+  background-color: #bfc1df;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -106,7 +106,7 @@
 }
 
 .logout-button {
-  background-color: #ef233c;
+  background-color: #4586e6;
   color: white;
   border: none;
   padding: 10px 15px;

@@ -26,14 +26,10 @@ export default function Login() {
     setError(null); // Reset error on new attempt
 
     try {
-      // const userData = await loginUser({ email, password });
-
-      // Use actual form values instead of hardcoded credentials
       const userData = await loginUser({
         email: email,
         password: password,
       });
-      console.log("Received User Data:", userData);
 
       if (!userData || !userData.token) {
         setError("Invalid credentials. Please try again.");

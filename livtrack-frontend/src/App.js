@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Reports from "./pages/reports";
 import Dashboard from "./pages/DashBoard";
 import Settings from "./pages/setting";
+import CholesterolMetrics from "./pages/CholesterolMetrics";
 
 function App() {
   return (
@@ -23,10 +24,39 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/reports"
+              element={
+                <ProtectedRoute>
+                  <Reports />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/setting"
+              element={
+                <ProtectedRoute>
+                  <Settings />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cholesterol-metrics"
+              element={
+                <ProtectedRoute>
+                  <CholesterolMetrics />
+                </ProtectedRoute>
+              }
+            />
             <Route path="*" element={<Navigate to="/dashboard" />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/reports" element={<Reports />} />
-            <Route path="/setting" element={<Settings />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

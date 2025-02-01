@@ -38,21 +38,24 @@ export default function Dashboard() {
 
       {/* Dashboard Content */}
       <div className="dashboard-content">
-        <div className="dashboard-tile" onClick={() => navigate("/some-url")}>
+        <div
+          className="dashboard-tile"
+          onClick={() => navigate("/cholesterol-metrics")}
+        >
           <img src="[UPLOAD YOUR PNG]" alt="Tile 1" />
-          <p>Feature 1</p>
+          <p>Cholesterol</p>
         </div>
         <div className="dashboard-tile" onClick={() => navigate("/some-url")}>
           <img src="[UPLOAD YOUR PNG]" alt="Tile 2" />
-          <p>Feature 2</p>
+          <p>Blood Reports</p>
         </div>
         <div className="dashboard-tile" onClick={() => navigate("/some-url")}>
           <img src="[UPLOAD YOUR PNG]" alt="Tile 3" />
-          <p>Feature 3</p>
+          <p>PCOS</p>
         </div>
         <div className="dashboard-tile" onClick={() => navigate("/some-url")}>
           <img src="[UPLOAD YOUR PNG]" alt="Tile 4" />
-          <p>Feature 4</p>
+          <p>EYE</p>
         </div>
       </div>
 
