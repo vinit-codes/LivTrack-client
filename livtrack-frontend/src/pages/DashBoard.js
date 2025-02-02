@@ -9,6 +9,63 @@ import "../styles/dashBoard.css";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
+const ScannerButton = () => {
+  const [showOptions, setShowOptions] = useState(false);
+
+  // Handle file selection
+  const handleFileSelect = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      console.log("Selected File:", file);
+      // You can process the file here (upload, preview, etc.)
+    }
+  };
+
+  // Handle camera capture
+  const handleCameraCapture = () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.capture = "environment"; // Opens back camera on mobile
+    input.onchange = (event) => handleFileSelect(event);
+    input.click();
+  };
+
+  return (
+    <div>
+      {/* Floating Scanner Button */}
+      <button className="scanner-button" onClick={() => setShowOptions(true)}>
+        📷
+      </button>
+
+      {/* Modal for selecting options */}
+      {showOptions && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Select an Option</h3>
+            <button
+              onClick={() => document.getElementById("fileInput").click()}
+            >
+              📁 Choose from Files
+            </button>
+            <button onClick={handleCameraCapture}>📷 Take a Photo</button>
+            <button onClick={() => setShowOptions(false)}>❌ Cancel</button>
+          </div>
+        </div>
+      )}
+
+      {/* Hidden File Input */}
+      <input
+        type="file"
+        id="fileInput"
+        accept="image/*"
+        style={{ display: "none" }}
+        onChange={handleFileSelect}
+      />
+    </div>
+  );
+};
+
 export default function Dashboard() {
   const [metrics, setMetrics] = useState([]);
   const { logout } = useAuth();
@@ -42,7 +99,7 @@ export default function Dashboard() {
           className="dashboard-tile"
           onClick={() => navigate("/cholesterol-metrics")}
         >
-          <img src="[UPLOAD YOUR PNG]" alt="Tile 1" />
+          <img src="../public/cholesterol.png" alt="Tile 1" />
           <p>Cholesterol</p>
         </div>
         <div className="dashboard-tile" onClick={() => navigate("/some-url")}>
@@ -59,13 +116,8 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Floating Scanner Button */}
-      <button
-        className="scanner-button"
-        onClick={() => console.log("Open Camera Scanner")}
-      >
-        📷
-      </button>
+      {/* Scanner Button */}
+      <ScannerButton />
 
       {/* Bottom Navigation Bar */}
       <div className="bottom-navbar">

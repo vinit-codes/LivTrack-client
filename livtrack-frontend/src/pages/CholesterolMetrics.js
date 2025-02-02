@@ -72,7 +72,17 @@ const CholesterolMetrics = () => {
         });
 
         const metricsData = response.data.data.metrics;
-        setLatestReport(metricsData[metricsData.length - 1]);
+
+        // Filter out reports with empty cholesterol data
+        const validReports = metricsData.filter(
+          (report) => report.cholesterolLevels.totalCholesterol.length > 0
+        );
+
+        if (validReports.length > 0) {
+          setLatestReport(validReports[validReports.length - 1]); // Pick the latest valid report
+        } else {
+          setLatestReport(null); // No valid reports found
+        }
       } catch (error) {
         console.error("Error fetching latest report:", error);
       } finally {
