@@ -8,6 +8,9 @@ import Reports from "./pages/reports";
 import Dashboard from "./pages/DashBoard";
 import Settings from "./pages/setting";
 import CholesterolMetrics from "./pages/CholesterolMetrics";
+import EyeMetics from "./pages/eyeMetrics";
+import PcosMetrics from "./pages/pcosMetrics";
+import BloodMetics from "./pages/bloodMetrics";
 
 function App() {
   return (
@@ -53,6 +56,30 @@ function App() {
               element={
                 <ProtectedRoute>
                   <CholesterolMetrics />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/eye-metrics"
+              element={
+                <ProtectedRoute>
+                  <EyeMetics />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/pcos-metrics"
+              element={
+                <ProtectedRoute>
+                  <PcosMetrics />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/blood-metrics"
+              element={
+                <ProtectedRoute>
+                  <BloodMetics />
                 </ProtectedRoute>
               }
             />
