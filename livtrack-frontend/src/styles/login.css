@@ -1,73 +1,168 @@
 /* General styling */
 body {
-  background-color: #e0f7ff; /* Light sky blue */
-  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #00aaff, #005fa3); /* Blue gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   margin: 0;
-  padding: 0;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
 }
 
-/* Centering the login card */
+/* Add animated background effect */
+body::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+  background-size: 20px 20px;
+  animation: moveBackground 10s linear infinite;
+  pointer-events: none;
+}
+
+/* Animation for the moving background */
+@keyframes moveBackground {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(20px, 20px);
+  }
+}
+
+/* Login container and positioning */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  opacity: 0;
-  animation: fadeIn 0.8s ease-in-out forwards;
+  width: 100%;
+  position: relative;
 }
 
-/* Card styling */
+/* Card styling with soft background and shadow */
 .login-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
+  padding: 40px;
+  border-radius: 20px; /* Slightly rounded corners */
+  background: rgba(255, 255, 255, 0.95); /* White with opacity */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   text-align: center;
-  transform: scale(0.9);
-  animation: zoomIn 0.6s ease-in-out forwards;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+  z-index: 1;
 }
 
-/* Title styling */
+/* Hover effect for the card */
+.login-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo section with smooth fade-in animation */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px; /* Increased margin for better spacing */
+}
+
+.login-logo {
+  width: 150px; /* Increased logo size */
+  height: auto;
+  animation: fadeIn 1s ease-in-out, float 4s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Title styling with gradient text */
 .login-title {
-  color: #007acc; /* Sky blue */
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #00aaff, #005fa3); /* Blue gradient */
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+/* Input group */
+.input-group {
+  margin-bottom: 25px; /* Increased margin for spacing */
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px; /* Spacing */
   font-weight: bold;
 }
 
-/* Input fields */
 .login-input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 1rem;
-  border: 1px solid #b3e0ff; /* Light blue */
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: transform 0.3s ease-in-out;
+  padding: 15px; /* Increased padding for better input size */
+  border: 2px solid #e0e0e0;
+  border-radius: 12px; /* Rounded corners */
+  font-size: 16px;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #f1f1f1;
+  color: #333; /* Text color */
+  margin-bottom: 15px; /* Space between inputs */
+  box-sizing: border-box; /* Make sure the padding doesn't affect the width */
 }
 
+/* Input field focus effect */
 .login-input:focus {
-  border-color: #007acc; /* Darker sky blue */
+  border-color: #00aaff; /* Lighter blue */
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
   outline: none;
-  transform: scale(1.02);
 }
 
-/* Button styling */
+/* Button styling with gradient background and hover effect */
 .login-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007acc; /* Sky blue */
+  background: linear-gradient(135deg, #00aaff, #005fa3); /* Blue gradient */
   color: white;
+  font-size: 18px;
+  padding: 14px; /* Larger padding for the button */
+  border-radius: 50px; /* Rounded button */
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+  width: 100%;
+  font-weight: bold;
+  box-sizing: border-box;
+  margin-top: 10px; /* Space above the button */
 }
 
+/* Button hover effect */
 .login-button:hover {
-  background-color: #005f99; /* Slightly darker sky blue */
+  background: linear-gradient(135deg, #005fa3, #00aaff); /* Reverse gradient */
   transform: scale(1.05);
 }
 
@@ -75,30 +170,26 @@ body {
   transform: scale(0.95);
 }
 
-/* Error alert */
+/* Error alert with shaking animation */
 .error-alert {
-  background-color: #ffcccc;
-  color: #cc0000;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
+  color: #ff4444;
+  font-size: 14px;
+  font-weight: bold;
+  animation: shake 0.5s ease-in-out;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
   }
-  to {
-    opacity: 1;
+  25% {
+    transform: translateX(-10px);
   }
-}
-
-@keyframes zoomIn {
-  from {
-    transform: scale(0.9);
+  50% {
+    transform: translateX(10px);
   }
-  to {
-    transform: scale(1);
+  75% {
+    transform: translateX(-10px);
   }
 }

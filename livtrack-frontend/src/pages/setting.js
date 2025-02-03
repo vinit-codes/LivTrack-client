@@ -14,7 +14,6 @@ const Settings = () => {
   return (
     <div className="settings-container">
       <h2>Settings</h2>
-
       {/* Account Section */}
       <div className="settings-section">
         <h3>Account</h3>
