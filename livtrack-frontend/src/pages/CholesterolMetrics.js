@@ -224,6 +224,12 @@ const CholesterolMetrics = () => {
         ) : (
           <p>No reports available</p>
         )}
+        
+        {loading && (
+          <div style={{ position: 'relative', height: '200px' }}>
+            <LoadingOverlay visible={true} />
+            </div>
+        )}
         <div className="cholesterol-container">
           <h2 className="cholesterol-title">Cholesterol Levels Over Time</h2>
           <div className="cholesterol-chart">
