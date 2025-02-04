@@ -99,7 +99,7 @@ export default function Dashboard() {
           className="dashboard-tile"
           onClick={() => navigate("/cholesterol-metrics")}
         >
-          <img src="../styles/cholesterol.png" alt="Tile 1" />
+          <img src="\public\cholesterol.png" alt="Tile 1" />
           <p>Cholesterol</p>
         </div>
         <div
