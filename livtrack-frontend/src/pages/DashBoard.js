@@ -106,7 +106,7 @@ export default function Dashboard() {
           className="dashboard-tile"
           onClick={() => navigate("/blood-metrics")}
         >
-          <img src="[UPLOAD YOUR PNG]" alt="Tile 2" />
+          <img src="\public\blood1.jpg" alt="Tile 2" />
           <p>Blood Reports</p>
         </div>
         <div
