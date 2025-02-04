@@ -11,9 +11,65 @@ import cholesterolImg from "./logos/cholesterol.png";
 import eyeImg from "./logos/eye.png";
 import logo from "./logos/logoLivTrack.png";
 import pcosImg from "./logos/pcos.png";
-import ScannerButton from "../components/ScannerButton"; // Updated import
 
 const API_URL = process.env.REACT_APP_API_URL;
+
+const ScannerButton = () => {
+  const [showOptions, setShowOptions] = useState(false);
+
+  // Handle file selection
+  const handleFileSelect = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      console.log("Selected File:", file);
+      // You can process the file here (upload, preview, etc.)
+    }
+  };
+
+  // Handle camera capture
+  const handleCameraCapture = () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.capture = "environment"; // Opens back camera on mobile
+    input.onchange = (event) => handleFileSelect(event);
+    input.click();
+  };
+
+  return (
+    <div>
+      {/* Floating Scanner Button */}
+      <button className="scanner-button" onClick={() => setShowOptions(true)}>
+        📷
+      </button>
+
+      {/* Modal for selecting options */}
+      {showOptions && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Select an Option</h3>
+            <button
+              onClick={() => document.getElementById("fileInput").click()}
+            >
+              📁 Choose from Files
+            </button>
+            <button onClick={handleCameraCapture}>📷 Take a Photo</button>
+            <button onClick={() => setShowOptions(false)}>❌ Cancel</button>
+          </div>
+        </div>
+      )}
+
+      {/* Hidden File Input */}
+      <input
+        type="file"
+        id="fileInput"
+        accept="image/*"
+        style={{ display: "none" }}
+        onChange={handleFileSelect}
+      />
+    </div>
+  );
+};
 
 export default function Dashboard() {
   const [metrics, setMetrics] = useState([]);
