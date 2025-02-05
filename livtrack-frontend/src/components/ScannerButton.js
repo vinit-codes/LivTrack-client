@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // ✅ Import useNavigate
 import axios from "axios";
-
+import "../styles/scannerstyle.css";
 const ScannerButton = ({ onUploadSuccess }) => {
   const [showOptions, setShowOptions] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
