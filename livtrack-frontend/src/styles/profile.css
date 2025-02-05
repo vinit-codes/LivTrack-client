@@ -1,24 +1,41 @@
-/* General Styling */
+/* Professional and Sleek Profile Page */
+
+:root {
+  --primary-color: #1e3a8a; /* Navy Blue */
+  --secondary-color: #64748b; /* Grayish Blue */
+  --accent-color: #0ea5e9; /* Light Blue */
+  --text-color: #f8fafc; /* White */
+  --background-color: #0f172a; /* Dark Background */
+  --card-bg: #1e293b; /* Card Background */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f4f7fc;
-  color: #333;
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Profile Container */
 .profile-container {
-  max-width: 600px;
-  margin: 50px auto;
-  background: #fff;
-  padding: 20px;
+  background: var(--card-bg);
+  padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 30px var(--shadow-color);
+  width: 400px;
   text-align: center;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Profile Header */
+.profile-container:hover {
+  transform: scale(1.02);
+}
+
 .profile-header {
   display: flex;
   flex-direction: column;
@@ -30,7 +47,8 @@ body {
   height: 120px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #1e3a5f;
+  border: 4px solid var(--accent-color);
+  animation: fadeIn 1s ease-in-out;
 }
 
 .profile-image {
@@ -39,77 +57,68 @@ body {
   object-fit: cover;
 }
 
-/* Profile Details */
-.profile-details {
-  margin-top: 15px;
+.profile-details h1 {
+  font-size: 1.8rem;
+  margin: 10px 0 5px;
+  color: var(--accent-color);
+  animation: slideIn 0.5s ease-in-out;
 }
 
-.profile-name {
-  font-size: 24px;
-  font-weight: 600;
-  color: #1e3a5f;
-}
-
-.profile-email,
-.profile-age,
-.profile-weight,
-.profile-height,
-.profile-bio {
-  font-size: 16px;
-  color: #555;
+.profile-details p {
   margin: 5px 0;
+  color: var(--secondary-color);
 }
 
-/* Bio Section */
-.profile-bio {
-  margin-top: 20px;
-  padding: 10px;
-  background: #e8efff;
-  border-radius: 8px;
-}
-
-.profile-bio h2 {
-  font-size: 20px;
-  color: #1e3a5f;
-}
-
-/* Profile Actions */
 .profile-actions {
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .btn-edit,
 .btn-logout {
-  padding: 10px 20px;
+  background: var(--accent-color);
+  color: var(--text-color);
   border: none;
+  padding: 10px 15px;
   border-radius: 6px;
-  font-size: 16px;
   cursor: pointer;
-  margin: 5px;
-  transition: all 0.3s ease;
-}
-
-.btn-edit {
-  background-color: #1e3a5f;
-  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-edit:hover {
-  background-color: #2a4c78;
+  background: #0284c7;
+  transform: translateY(-3px);
 }
 
 .btn-logout {
-  background-color: #ff4d4d;
-  color: #fff;
+  background: #dc2626;
 }
 
 .btn-logout:hover {
-  background-color: #e63939;
+  background: #b91c1c;
+  transform: translateY(-3px);
 }
 
-/* Error Message */
-.error {
-  color: #d9534f;
-  font-size: 18px;
-  font-weight: bold;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

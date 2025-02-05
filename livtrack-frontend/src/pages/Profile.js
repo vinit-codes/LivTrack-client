@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/profile.css";
+import profile from "./logos/profile.jpg";
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -76,7 +77,7 @@ const Profile = () => {
     <div className="profile-container">
       <div className="profile-header">
         <div className="profile-image-container">
-          <img src={user.image} alt="Profile" className="profile-image" />
+          <img src={profile} alt="logo" className="profile-image" />
         </div>
         <div className="profile-details">
           <h1 className="profile-name">Name:{user.name}</h1>
