@@ -275,7 +275,7 @@ const CholesterolMetrics = () => {
                 <Line
                   type="monotone"
                   dataKey="triglycerides"
-                  stroke="#090f13"
+                  stroke="#D4D4D4"
                   name="Triglycerides (mg/dL)"
                   className="hdl-line"
                 />

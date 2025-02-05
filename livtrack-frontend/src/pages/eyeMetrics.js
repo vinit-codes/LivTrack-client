@@ -56,7 +56,7 @@ const CholesterolMetrics = () => {
   useEffect(() => {
     const fetchGraphData = async () => {
       try {
-        const response = await api.get("/health/cholesterol-metrics", {
+        const response = await api.get("/health/eye-metrics", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -83,7 +83,7 @@ const CholesterolMetrics = () => {
   useEffect(() => {
     const fetchLatestReport = async () => {
       try {
-        const response = await api.get("/health/cholesterol-metrics", {
+        const response = await api.get("/health/eye-metrics", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -114,7 +114,7 @@ const CholesterolMetrics = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post("/health/cholesterol-metrics", formData);
+      await api.post("/health/eye-metrics", formData);
       navigate(0);
     } catch (error) {
       console.error("Error submitting data:", error);
