@@ -224,11 +224,11 @@ const CholesterolMetrics = () => {
         ) : (
           <p>No reports available</p>
         )}
-        
+
         {loading && (
-          <div style={{ position: 'relative', height: '200px' }}>
+          <div style={{ position: "relative", height: "200px" }}>
             <LoadingOverlay visible={true} />
-            </div>
+          </div>
         )}
         <div className="cholesterol-container">
           <h2 className="cholesterol-title">Cholesterol Levels Over Time</h2>
@@ -272,15 +272,20 @@ const CholesterolMetrics = () => {
                   name="HDL (mg/dL)"
                   className="hdl-line"
                 />
-
                 <Line
                   type="monotone"
                   dataKey="triglycerides"
                   stroke="#090f13"
-                  name="triglycerides (mg/dL)"
+                  name="Triglycerides (mg/dL)"
                   className="hdl-line"
                 />
               </LineChart>
+              <Button
+                onClick={() => navigate("/cholesterol-graph")}
+                style={{ marginTop: "1rem" }}
+              >
+                View Detailed Graph
+              </Button>
             </Card>
           </div>
         </div>

@@ -11,6 +11,7 @@ import CholesterolMetrics from "./pages/CholesterolMetrics";
 import EyeMetics from "./pages/eyeMetrics";
 import PcosMetrics from "./pages/pcosMetrics";
 import BloodMetics from "./pages/bloodMetrics";
+import CholesterolGraph from "./pages/cholesterolGraph";
 
 function App() {
   return (
@@ -80,6 +81,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <BloodMetics />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cholesterol-graph"
+              element={
+                <ProtectedRoute>
+                  <CholesterolGraph />
                 </ProtectedRoute>
               }
             />

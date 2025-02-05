@@ -36,7 +36,7 @@ const ScannerButton = ({ onUploadSuccess }) => {
       if (onUploadSuccess) onUploadSuccess(response.data);
 
       // ✅ Navigate to cholesterol metrics page on success
-      navigate("/cholesterol-metrics");
+      navigate("/cholesterol-graph");
     } catch (error) {
       console.error("Response Data:", error.response?.data);
       console.error("Status Code:", error.response?.status);
