@@ -10,9 +10,8 @@ import bloodImg from "./logos/blood1.jpg";
 import cholesterolImg from "./logos/cholesterol.png";
 import eyeImg from "./logos/eye.png";
 import logo from "./logos/logoLivTrack.png";
-import ScannerButton from "../components/scannerbutton";
+import ScannerButton from "../components/ScannerButton";
 import pcosImg from "./logos/pcos.png";
-
 import api from "../services/api";
 
 export default function Dashboard() {
