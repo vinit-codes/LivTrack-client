@@ -12,7 +12,7 @@ import EyeMetics from "./pages/eyeMetrics";
 import PcosMetrics from "./pages/pcosMetrics";
 import BloodMetics from "./pages/bloodMetrics";
 import CholesterolGraph from "./pages/cholesterolGraph";
-
+import Hospital from "./pages/hospital";
 function App() {
   return (
     <MantineProvider>
@@ -89,6 +89,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <CholesterolGraph />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/hospital-details"
+              element={
+                <ProtectedRoute>
+                  <Hospital />
                 </ProtectedRoute>
               }
             />
