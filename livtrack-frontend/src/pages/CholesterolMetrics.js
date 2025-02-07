@@ -206,7 +206,7 @@ const CholesterolMetrics = () => {
         </Card>
 
         {latestReport ? (
-          <div>
+          <div className="lastreports">
             <p>Date: {new Date(latestReport.date).toLocaleDateString()}</p>
             <p>
               Total Cholesterol:{" "}

@@ -4,6 +4,99 @@ body {
   flex-wrap: nowrap;
   justify-content: space-around;
 }
+.lastreports {
+  background: #0b1e36; /* Dark Blue */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  margin: 1.5rem 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #dfe6e9; /* Bright Text */
+}
+
+.lastreports p {
+  margin: 0.8rem 0;
+  padding: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+.lastreports p:first-child {
+  font-weight: 600;
+  color: #74b9ff; /* Light Blue */
+  border-bottom: 2px solid #1e3799;
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+}
+
+.lastreports p:nth-child(n + 2):nth-child(-n + 5) {
+  background: rgba(255, 255, 255, 0.1); /* Subtle Highlight */
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 1rem;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.lastreports p:nth-child(n + 2):nth-child(-n + 5):hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.lastreports p:nth-child(n + 2):nth-child(-n + 5)::before {
+  content: "•";
+  color: #74b9ff; /* Light Blue */
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.lastreports p:nth-child(n + 6) {
+  color: #b2bec3;
+  font-size: 0.9rem;
+  padding-left: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.lastreports p:nth-child(6) {
+  border-top: 2px solid #1e3799;
+  padding-top: 1.5rem;
+}
+
+/* Key metric highlighting */
+.lastreports p:nth-child(2) {
+  /* Total Cholesterol */
+  border-left: 4px solid #74b9ff; /* Light Blue */
+}
+
+.lastreports p:nth-child(3) {
+  /* LDL */
+  border-left: 4px solid #ff7675; /* Red */
+}
+
+.lastreports p:nth-child(4) {
+  /* HDL */
+  border-left: 4px solid #55efc4; /* Green */
+}
+
+.lastreports p:nth-child(5) {
+  /* Triglycerides */
+  border-left: 4px solid #fdcb6e; /* Yellow */
+}
+
+@media (max-width: 768px) {
+  .lastreports {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .lastreports p:nth-child(n + 2):nth-child(-n + 5) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
 
 /* General Styles */
 .metrics-container {
