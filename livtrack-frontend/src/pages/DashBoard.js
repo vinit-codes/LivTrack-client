@@ -82,6 +82,9 @@ export default function Dashboard() {
         <button onClick={() => navigate("/home")}>🏠 Home</button>
         <button onClick={() => navigate("/Profile")}>👤 Profile</button>
         <button onClick={() => navigate("/reports")}>📄 Reports</button>
+        <button onClick={() => navigate("/hospital-details")}>
+          🏨 Hospital
+        </button>
         <button onClick={() => navigate("/setting")}>⚙️ Settings</button>
       </div>
     </div>
