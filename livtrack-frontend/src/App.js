@@ -12,12 +12,8 @@ import EyeMetics from "./pages/eyeMetrics";
 import PcosMetrics from "./pages/pcosMetrics";
 import BloodMetics from "./pages/bloodMetrics";
 import CholesterolGraph from "./pages/cholesterolGraph";
-<<<<<<< HEAD
 import PCOSGraphs from "./pages/pcosGraphs";
 
-=======
-import Hospital from "./pages/hospital";
->>>>>>> 07ea07d2d0b3f3a01dab8ec77f5bd62240c97247
 function App() {
   return (
     <MantineProvider>
@@ -98,17 +94,10 @@ function App() {
               }
             />
             <Route
-<<<<<<< HEAD
               path="/pcos-graph"
               element={
                 <ProtectedRoute>
                   <PCOSGraphs />
-=======
-              path="/hospital-details"
-              element={
-                <ProtectedRoute>
-                  <Hospital />
->>>>>>> 07ea07d2d0b3f3a01dab8ec77f5bd62240c97247
                 </ProtectedRoute>
               }
             />
