@@ -17,23 +17,14 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   font-family: "Inter", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
 }
 
 /* Container for login */
 .login-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
+  height: 100vh;
   animation: fadeIn 0.8s ease-in-out;
 }
 
@@ -46,7 +37,6 @@ body {
   border: 1px solid var(--border-color);
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  width: 100%;
 }
 
 .login-card:hover {
@@ -71,7 +61,6 @@ body {
   padding: 12px;
   border-radius: 8px;
   transition: border 0.3s ease, background 0.3s ease;
-  width: 100%;
 }
 
 .login-input input:focus {
@@ -79,8 +68,8 @@ body {
   background: var(--input-focus) !important;
 }
 
-/* Submit & Register buttons */
-.login-button, .register-button {
+/* Submit button */
+.login-button {
   background: var(--button-bg) !important;
   color: white !important;
   padding: 12px;
@@ -89,13 +78,9 @@ body {
   border-radius: 8px;
   transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
   margin-top: 1rem;
-  width: 100%;
-  text-align: center;
-  border: none;
-  cursor: pointer;
 }
 
-.login-button:hover, .register-button:hover {
+.login-button:hover {
   background: var(--button-hover) !important;
   transform: translateY(-2px);
 }
@@ -108,28 +93,6 @@ body {
   font-weight: bold;
   margin-bottom: 1rem;
   animation: fadeIn 0.5s ease-in-out;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-/* Responsive Design */
-@media (max-width: 500px) {
-  .login-card {
-    padding: 1.5rem;
-  }
-
-  .login-title {
-    font-size: 20px;
-  }
-
-  .login-input input {
-    padding: 10px;
-  }
-
-  .login-button, .register-button {
-    font-size: 14px;
-    padding: 10px;
-  }
 }
 
 /* Keyframe animations */
